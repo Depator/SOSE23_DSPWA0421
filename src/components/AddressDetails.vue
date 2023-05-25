@@ -1,5 +1,7 @@
 <template>
-    {{ address.street +" "+ address.number }}
+    <div class="address-item">
+        {{ address.street +" "+ address.number }}
+    </div>
 </template>
 
 <script>
@@ -10,6 +12,10 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.address-item {
+    color: green;
+    text-align: left;
+}
 
 </style>

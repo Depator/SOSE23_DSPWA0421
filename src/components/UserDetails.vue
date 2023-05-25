@@ -3,10 +3,48 @@
     <p @click="loadAddress(user.id)">{{ user }}</p>
   </div>
   <div v-if = "addresses.length > 0">
-    <div v-for = "address in addresses" :key="address.id">
-      <AddressDetails :address="address">
-      </AddressDetails>
+      <div v-for = "address in addresses" :key="address.id">
+      <AddressDetails :address="address"></AddressDetails>
     </div>
+
+    <v-expansion-panels>
+      <v-expansion-panel>
+        <v-expansion-panel-titel>
+          {{ user.firstname +" "+user.lastname }}
+        </v-expansion-panel-titel>
+          <v-expansion-panels>
+            <v-expansion-panel
+              v-for="address in addresses" 
+              :key="address.id"
+              :title="address.street"
+              :text="address.number"
+            >
+          </v-expansion-panel>
+        </v-expansion-panels>
+      </v-expansion-panel>
+    </v-expansion-panels>
+    <!--<v-list>
+      <v-list-item 
+        v-for = "address in addresses" 
+        :key="address.id"
+        style="height: 60px;"
+        :title="user.firstname + ' ' + user.lastname"
+        :subtitle="user.firstname"
+        >
+        <AddressDetails :address="address"></AddressDetails>
+        
+          <template v-slot:append>
+            <v-btn
+            color="primary"
+            size="medium"
+            variant="text"
+            icon="mdi-menu-down"
+            @click="menuDown = !menuDown">
+          </v-btn>
+        </template> 
+      </v-list-item>
+    </v-list>
+    -->
   </div>
 
 </template>
