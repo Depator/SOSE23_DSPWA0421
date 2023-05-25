@@ -1,5 +1,5 @@
 <template>
-    {{ address.street +" "+ address.number }} //displays streetname and number
+    {{ address.street +" "+ address.number }}
 </template>
 
 <script>
